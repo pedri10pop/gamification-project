@@ -19,18 +19,23 @@ public class InMemoryAchivementStorage implements AchivementStorage {
 	@Override
 	public Achivement getAchivement(String user, String achivementName) {
 		List<Achivement> userAchivements = storage.get(user);
+		
 		if(userAchivements == null)
 			return null;
+		
 		for (Achivement a : userAchivements) {
 			if(a.getName().equals(achivementName))
 				return a;
 		}
+		
 		return null;
 	}
 
 	@Override
 	public void addAchivement(String user, Achivement a){	
-		List<Achivement> userAchivements = new ArrayList<>();
+		List<Achivement> userAchivements = storage.containsKey(user) 
+				? storage.get(user)
+				: new ArrayList<>();
 		
 		userAchivements.add(a);
 		
