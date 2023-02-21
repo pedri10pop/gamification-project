@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 class TestAchivements {
 
 	@Test
-	void testCreateAchivementCOMMENT() {
+	void testCreateAchivementOfPointsType() {
 		String achivimentName = "COMMENT";
 		Integer achivementPoints = 5;
 		Achivement a = new Points(achivimentName, achivementPoints);
@@ -17,4 +17,15 @@ class TestAchivements {
 		assertEquals(5, a.getPoints());
 	}
 
+	@Test
+	void testCreateAchivementOfBadgeType() {
+		String achivimentName = "COMMENT";
+		String achivimentBadge = "YOU ARE A WRITTER";
+		
+		Achivement a = new Badge(achivimentName, achivimentBadge);
+		
+		assertEquals("COMMENT", a.getName());
+		assertEquals(5, a.getPoints());
+	}
+	
 }
