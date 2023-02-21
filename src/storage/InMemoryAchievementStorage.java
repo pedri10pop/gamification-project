@@ -7,7 +7,7 @@ import java.util.Map;
 
 import achivements.Achivement;
 
-public class InMemoryAchivementStorage implements AchivementStorage {
+public class InMemoryAchievementStorage implements AchivementStorage {
 
 	private Map<String, List<Achivement>> storage = new HashMap<>();
 	
@@ -44,7 +44,7 @@ public class InMemoryAchivementStorage implements AchivementStorage {
 				return ;
 			}
 		}
-		
+
 		userAchivements.add(a);
 		
 		storage.put(user, userAchivements);

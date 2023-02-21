@@ -3,7 +3,6 @@ package storage;
 import java.util.List;
 
 import achivements.Achivement;
-import user.User;
 
 public interface AchivementStorage {
 	

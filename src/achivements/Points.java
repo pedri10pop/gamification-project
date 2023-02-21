@@ -28,6 +28,7 @@ public class Points extends Achivement {
 
 	@Override
 	public boolean equals(Achivement other) {
-		return this.Name.equals(other.Name);
+		return this.Name.equals(other.Name) &&
+				this.getClass().equals(other.getClass());
 	}
 }

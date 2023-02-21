@@ -1,28 +1,34 @@
 package storage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import achivements.Achivement;
+import achivements.Badge;
 import achivements.Points;
 import user.User;
 
 class TestAchivementStorage {
+	
+	AchivementStorage as;
+	User u;
+	
+	@BeforeEach
+	public void setup(){
+		as = new InMemoryAchievementStorage();		
+		u = new User("Pedro");
+	}
 
 	@Test
 	void testCreatingAMemoryAchivimentStorage() {
-		AchivementStorage as = new InMemoryAchivementStorage();		
-		
 		assertEquals(null, as.getAchivements("Invalid User"));
 		assertEquals(null, as.getAchivement("Inexistent User", "Invalid Achiviment"));
 	}
 	
 	@Test
 	void testAddAchivementToStorage() {
-		AchivementStorage as = new InMemoryAchivementStorage();
-		User u = new User("Pedro");
 		Achivement a = new Points("COMMENT", 5);
 		as.addAchivement(u.getName(), a);
 		
@@ -35,8 +41,6 @@ class TestAchivementStorage {
 	
 	@Test
 	void testAddTwoDifferentAchivementToAStorage() {
-		AchivementStorage as = new InMemoryAchivementStorage();
-		User u = new User("Pedro");
 		Achivement a = new Points("COMMENT", 5);
 		Achivement b = new Points("LIKE", 2);
 
@@ -53,8 +57,6 @@ class TestAchivementStorage {
 	
 	@Test
 	void testAddTwoEqualAchivementToAStorage() {
-		AchivementStorage as = new InMemoryAchivementStorage();
-		User u = new User("Pedro");
 		Achivement a = new Points("COMMENT", 5);
 		Achivement b = new Points("COMMENT", 5);
 		
@@ -63,6 +65,18 @@ class TestAchivementStorage {
 		
 		assertEquals(1, as.getAchivements("Pedro").size());
 		assertEquals(10, as.getAchivement("Pedro","COMMENT").getPoints());
+	}
+
+	@Test
+	void testAddPointAndBadgeOfSameAchivement() {
+		Achivement a = new Points("COMMENT", 5);
+		Achivement b = new Badge("COMMENT", "YOU GOT IT");
+		
+		as.addAchivement(u.getName(), a);
+		as.addAchivement(u.getName(), b);
+		
+		assertEquals(2, as.getAchivements("Pedro").size());
+		assertEquals(5, as.getAchivement("Pedro","COMMENT").getPoints());
 	}
 	
 	
