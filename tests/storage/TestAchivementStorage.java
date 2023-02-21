@@ -12,9 +12,10 @@ class TestAchivementStorage {
 
 	@Test
 	void testCreatingAMemoryAchivimentStorage() {
-		AchivementStorage as = new InMemoryAchivementStorage();
+		AchivementStorage as = new InMemoryAchivementStorage();		
 		
-		assertEquals(null, as.getAchivements(""));
+		assertEquals(null, as.getAchivements("Invalid User"));
+		assertEquals(null, as.getAchivement("Inexistent User", "Invalid Achiviment"));
 	}
 	
 	@Test
