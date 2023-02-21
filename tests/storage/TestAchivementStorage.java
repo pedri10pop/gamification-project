@@ -24,7 +24,7 @@ class TestAchivementStorage {
 		AchivementStorage as = new InMemoryAchivementStorage();
 		User u = new User("Pedro");
 		Achivement a = new Points("COMMENT", 5);
-		as.addAchivement(u, a);
+		as.addAchivement(u.getName(), a);
 		
 		assertEquals("COMMENT", as.getAchivements("Pedro").get(0).getName());
 		assertEquals(5, as.getAchivements("Pedro").get(0).getPoints());
@@ -40,8 +40,8 @@ class TestAchivementStorage {
 		Achivement a = new Points("COMMENT", 5);
 		Achivement b = new Points("LIKE", 2);
 
-		as.addAchivement(u, a);
-		as.addAchivement(u, b);
+		as.addAchivement(u.getName(), a);
+		as.addAchivement(u.getName(), b);
 		
 		assertEquals(2, as.getAchivements("Pedro").size());
 		assertEquals(a, as.getAchivement("Pedro","COMMENT"));
@@ -55,8 +55,8 @@ class TestAchivementStorage {
 		Achivement a = new Points("COMMENT", 5);
 		Achivement b = new Points("COMMENT", 5);
 		
-		as.addAchivement(u, a);
-		as.addAchivement(u, b);
+		as.addAchivement(u.getName(), a);
+		as.addAchivement(u.getName(), b);
 		
 		assertEquals(2, as.getAchivements("Pedro").size());
 		assertEquals(10, as.getAchivement("Pedro","COMMENT").getPoints());

@@ -11,6 +11,6 @@ public interface AchivementStorage {
 
 	public Achivement getAchivement(String user, String a);
 
-	public void addAchivement(User user, Achivement a);
+	public void addAchivement(String user, Achivement a);
 
 }

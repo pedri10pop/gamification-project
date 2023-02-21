@@ -5,10 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import achivements.AchievmentsHasNoPointsToAdd;
 import achivements.Achivement;
-import achivements.AchivementObjectHasNoPoints;
-import user.User;
 
 public class InMemoryAchivementStorage implements AchivementStorage {
 
@@ -20,23 +17,24 @@ public class InMemoryAchivementStorage implements AchivementStorage {
 	}
 
 	@Override
-	public Achivement getAchivement(String user, String achivemet) {
+	public Achivement getAchivement(String user, String achivementName) {
+		List<Achivement> userAchivements = storage.get(user);
+		if(userAchivements == null)
+			return null;
+		for (Achivement a : userAchivements) {
+			if(a.getName().equals(achivementName))
+				return a;
+		}
 		return null;
 	}
 
 	@Override
-	public void addAchivement(User user, Achivement a) throws AchievmentsHasNoPointsToAdd, AchivementObjectHasNoPoints{	
-		List<Achivement> achives = storage.get(user.getName());
-		Achivement acvmt;
-		if(achives == null)
-			achives = new ArrayList<>();
-		else
-			for(Achivement ac : achives)
-				if(ac.equals(a))
-					ac.addPoints(a);
+	public void addAchivement(String user, Achivement a){	
+		List<Achivement> userAchivements = new ArrayList<>();
 		
-		achives.add(a);
-		storage.put(user.getName(), achives);	
+		userAchivements.add(a);
+		
+		storage.put(user, userAchivements);
 	}
 
 }
