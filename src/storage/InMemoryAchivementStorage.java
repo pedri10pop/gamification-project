@@ -10,7 +10,7 @@ import achivements.Achivement;
 import achivements.AchivementObjectHasNoPoints;
 import user.User;
 
-public class MemoryAchivementStorage implements AchivementStorage {
+public class InMemoryAchivementStorage implements AchivementStorage {
 
 	private Map<String, List<Achivement>> storage = new HashMap<>();
 	
