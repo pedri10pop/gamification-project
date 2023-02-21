@@ -1,36 +1,22 @@
 package achivements;
 
-public class Achivement{
+public abstract class Achivement{
 
 	protected String Name;
-	
-	public Achivement(String achivementName) {
-		this.Name = achivementName;
-	}
 
 	public String getName() {
 		return Name;
 	}
 
-	public Integer getPoints() throws AchivementObjectHasNoPoints{
-		throw new AchivementObjectHasNoPoints(this.getClass().toString());
-	}
+	public abstract Integer getPoints();
 
-	public String getBadge() throws AchivementObjectHasNoBadge {
-		throw new AchivementObjectHasNoBadge(this.getClass().toString());
-	}
+	public abstract String getBadge();
 	
-	public boolean equals(Achivement other) {
-		return this.Name.equals(other.Name);
-	}
+	public abstract boolean equals(Achivement other);
 	
-	public boolean equals(String AchivementType) {
-		return this.Name.equals(AchivementType);
-	}
+	public abstract boolean equals(String AchivementType);
 
-	public void addPoints(Achivement other) throws AchievmentsHasNoPointsToAdd, AchivementObjectHasNoPoints {
-		throw new AchievmentsHasNoPointsToAdd(this.getClass().toString());
-	}
+	public abstract void addPoints(Achivement other);
 	
 
 }
