@@ -44,8 +44,11 @@ class TestAchivementStorage {
 		as.addAchivement(u.getName(), b);
 		
 		assertEquals(2, as.getAchivements("Pedro").size());
-		assertEquals(a, as.getAchivement("Pedro","COMMENT"));
-		assertEquals(b, as.getAchivement("Pedro","LIKE"));
+		
+		assertEquals("COMMENT", as.getAchivement("Pedro","COMMENT").getName());
+		assertEquals(5, as.getAchivement("Pedro","COMMENT").getPoints());
+		assertEquals("COMMENT", as.getAchivement("Pedro","LIKE").getName());
+		assertEquals(2, as.getAchivement("Pedro","LIKE").getPoints());
 	}
 	
 	@Test
