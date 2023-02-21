@@ -25,7 +25,7 @@ class TestAchivements {
 		Achivement a = new Badge(achivimentName, achivimentBadge);
 		
 		assertEquals("COMMENT", a.getName());
-		assertEquals(5, a.getPoints());
+		assertEquals("YOU ARE A WRITTER", a.getBadge());
 	}
 	
 }
