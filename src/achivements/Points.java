@@ -28,14 +28,6 @@ public class Points extends Achivement {
 
 	@Override
 	public boolean equals(Achivement other) {
-		// TODO Auto-generated method stub
-		return false;
+		return this.Name.equals(other.Name);
 	}
-
-	@Override
-	public boolean equals(String AchivementType) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
 }

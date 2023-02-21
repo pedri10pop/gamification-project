@@ -21,14 +21,8 @@ public class Badge extends Achivement {
 
 	@Override
 	public boolean equals(Achivement other) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean equals(String AchivementType) {
-		// TODO Auto-generated method stub
-		return false;
+		return this.Name.equals(other.Name) &&
+				this.badgeName.equals(other.getBadge());
 	}
 
 	@Override

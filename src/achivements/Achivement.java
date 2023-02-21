@@ -13,8 +13,6 @@ public abstract class Achivement{
 	public abstract String getBadge();
 	
 	public abstract boolean equals(Achivement other);
-	
-	public abstract boolean equals(String AchivementType);
 
 	public abstract void addPoints(Achivement other);
 	

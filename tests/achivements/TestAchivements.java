@@ -1,7 +1,7 @@
 package achivements;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -27,5 +27,25 @@ class TestAchivements {
 		assertEquals("COMMENT", a.getName());
 		assertEquals("YOU ARE A WRITTER", a.getBadge());
 	}
+	
+	@Test
+	void testValidatingPointsEquality() {
+		
+		Achivement a = new Points("LIKE",5);
+		Achivement b = new Points("LIKE",3);
+		
+		assertTrue(a.equals(b));		
+	}
+	
+	@Test
+	void testValidatingBadgeEquality() {
+		
+		Achivement a = new Badge("LIKE","LIKER");
+		Achivement b = new Badge("LIKE","LIKER");
+		
+		assertTrue(a.equals(b));		
+	}
+	
+	
 	
 }
