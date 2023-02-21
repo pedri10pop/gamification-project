@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import achivements.Achivement;
 import achivements.AchivementObjectHasNoPoints;
-import achivements.PointsAchivement;
+import achivements.Points;
 import user.User;
 
 class TestAchivementStorage {
@@ -22,7 +22,7 @@ class TestAchivementStorage {
 	void testAddAAchivementToAStorage() {
 		AchivementStorage as = new MemoryAchivementStorage();
 		User u = new User("Pedro");
-		Achivement a = new PointsAchivement("COMMENT", 5);
+		Achivement a = new Points("COMMENT", 5);
 		as.addAchivement(u, a);
 		
 		assertEquals(a, as.getAchivements("Pedro").get(0));
@@ -34,8 +34,8 @@ class TestAchivementStorage {
 	void testAddTwoDifferentAchivementToAStorage() {
 		AchivementStorage as = new MemoryAchivementStorage();
 		User u = new User("Pedro");
-		Achivement a = new PointsAchivement("COMMENT", 5);
-		Achivement b = new PointsAchivement("LIKE", 2);
+		Achivement a = new Points("COMMENT", 5);
+		Achivement b = new Points("LIKE", 2);
 
 		as.addAchivement(u, a);
 		as.addAchivement(u, b);
@@ -49,8 +49,8 @@ class TestAchivementStorage {
 	void testAddTwoEqualAchivementToAStorage() throws AchivementObjectHasNoPoints {
 		AchivementStorage as = new MemoryAchivementStorage();
 		User u = new User("Pedro");
-		Achivement a = new PointsAchivement("COMMENT", 5);
-		Achivement b = new PointsAchivement("COMMENT", 5);
+		Achivement a = new Points("COMMENT", 5);
+		Achivement b = new Points("COMMENT", 5);
 		
 		as.addAchivement(u, a);
 		as.addAchivement(u, b);

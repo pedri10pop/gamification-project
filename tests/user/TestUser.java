@@ -8,7 +8,7 @@ import achivements.AchievmentsHasNoPointsToAdd;
 import achivements.Achivement;
 import achivements.AchivementObjectHasNoPoints;
 import achivements.Badge;
-import achivements.PointsAchivement;
+import achivements.Points;
 
 class TestUser {
 
@@ -26,7 +26,7 @@ class TestUser {
 		String userName = "Pedro";
 		User u = new User(userName);
 		
-		Achivement a = new PointsAchivement("COMMENT", 5);
+		Achivement a = new Points("COMMENT", 5);
 		u.newAchivement(a);
 		
 		assertEquals("Pedro", u.getName());
@@ -38,8 +38,8 @@ class TestUser {
 		String userName = "Pedro";
 		User u = new User(userName);
 		
-		Achivement a = new PointsAchivement("COMMENT", 5);
-		Achivement b = new PointsAchivement("LIKE IT", 1);
+		Achivement a = new Points("COMMENT", 5);
+		Achivement b = new Points("LIKE IT", 1);
 		u.newAchivement(a);
 		u.newAchivement(b);
 		
@@ -63,9 +63,9 @@ class TestUser {
 		String userName = "Pedro";
 		User u = new User(userName);
 		
-		Achivement a = new PointsAchivement("COMMENT", 5);
-		Achivement b = new PointsAchivement("COMMENT", 5);
-		Achivement c = new PointsAchivement("COMMENT", 5);
+		Achivement a = new Points("COMMENT", 5);
+		Achivement b = new Points("COMMENT", 5);
+		Achivement c = new Points("COMMENT", 5);
 		u.newAchivement(a);
 		u.newAchivement(b);
 		u.newAchivement(c);
@@ -80,9 +80,9 @@ class TestUser {
 		String userName = "Pedro";
 		User u = new User(userName);
 		
-		Achivement a = new PointsAchivement("COMMENT", 5);
-		Achivement b = new PointsAchivement("COMMENT", 5);
-		Achivement c = new PointsAchivement("COMMENT", 5);
+		Achivement a = new Points("COMMENT", 5);
+		Achivement b = new Points("COMMENT", 5);
+		Achivement c = new Points("COMMENT", 5);
 		u.newAchivement(a);
 		u.newAchivement(b);
 		u.newAchivement(c);

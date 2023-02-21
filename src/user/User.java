@@ -6,7 +6,7 @@ import java.util.List;
 import achivements.AchievmentsHasNoPointsToAdd;
 import achivements.Achivement;
 import achivements.AchivementObjectHasNoPoints;
-import achivements.PointsAchivement;
+import achivements.Points;
 
 public class User {
 
@@ -70,11 +70,11 @@ public class User {
 	}
 	
 	private boolean isDesiredPointAchiviment(String achivementName, Achivement a) {
-		return a.getClass().equals(PointsAchivement.class) && achivementName.equals(a.getName());
+		return a.getClass().equals(Points.class) && achivementName.equals(a.getName());
 	}
 	
 	private boolean isPointAchivementsEquals(Achivement a, Achivement b) {
-		return b.equals(a) && a.getClass().equals(PointsAchivement.class);
+		return b.equals(a) && a.getClass().equals(Points.class);
 	}
 
 	
