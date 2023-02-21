@@ -2,14 +2,16 @@ package storage;
 
 import java.util.List;
 
-import achivements.Achivement;
+import achivements.Achievement;
 
 public interface AchivementStorage {
 	
-	public List<Achivement> getAchivements(String user);
+	public List<Achievement> getAchivements(String user);
 
-	public Achivement getAchivement(String user, String a);
+	public Achievement getAchivement(String user, String a);
 
-	public void addAchivement(String user, Achivement a);
+	public void addAchivement(String user, Achievement a);
+
+	public void addBadgeObserver(AchievementObserver badgeObserver);
 
 }

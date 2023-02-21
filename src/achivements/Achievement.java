@@ -1,6 +1,6 @@
 package achivements;
 
-public abstract class Achivement{
+public abstract class Achievement{
 
 	protected String Name;
 
@@ -12,9 +12,9 @@ public abstract class Achivement{
 
 	public abstract String getBadge();
 	
-	public abstract boolean equals(Achivement other);
+	public abstract boolean equals(Achievement other);
 
-	public abstract void addPoints(Achivement other);
+	public abstract void addPoints(Achievement other);
 	
 
 }

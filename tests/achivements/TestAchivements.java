@@ -11,7 +11,7 @@ class TestAchivements {
 	void testCreateAchivementOfPointsType() {
 		String achivimentName = "COMMENT";
 		Integer achivementPoints = 5;
-		Achivement a = new Points(achivimentName, achivementPoints);
+		Achievement a = new Points(achivimentName, achivementPoints);
 		
 		assertEquals("COMMENT", a.getName());
 		assertEquals(5, a.getPoints());
@@ -22,7 +22,7 @@ class TestAchivements {
 		String achivimentName = "COMMENT";
 		String achivimentBadge = "YOU ARE A WRITTER";
 		
-		Achivement a = new Badge(achivimentName, achivimentBadge);
+		Achievement a = new Badge(achivimentName, achivimentBadge);
 		
 		assertEquals("COMMENT", a.getName());
 		assertEquals("YOU ARE A WRITTER", a.getBadge());
@@ -31,8 +31,8 @@ class TestAchivements {
 	@Test
 	void testValidatingPointsEquality() {
 		
-		Achivement a = new Points("LIKE",5);
-		Achivement b = new Points("LIKE",3);
+		Achievement a = new Points("LIKE",5);
+		Achievement b = new Points("LIKE",3);
 		
 		assertTrue(a.equals(b));		
 	}
@@ -40,8 +40,8 @@ class TestAchivements {
 	@Test
 	void testValidatingBadgeEquality() {
 		
-		Achivement a = new Badge("LIKE","LIKER");
-		Achivement b = new Badge("LIKE","LIKER");
+		Achievement a = new Badge("LIKE","LIKER");
+		Achievement b = new Badge("LIKE","LIKER");
 		
 		assertTrue(a.equals(b));		
 	}

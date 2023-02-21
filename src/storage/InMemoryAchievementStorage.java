@@ -5,25 +5,26 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import achivements.Achivement;
+import achivements.Achievement;
 
 public class InMemoryAchievementStorage implements AchivementStorage {
 
-	private Map<String, List<Achivement>> storage = new HashMap<>();
+	private Map<String, List<Achievement>> storage = new HashMap<>();
+	private List<AchievementObserver> observers = new ArrayList<>();
 	
 	@Override
-	public List<Achivement> getAchivements(String user) {
+	public List<Achievement> getAchivements(String user) {
 		return storage.get(user);
 	}
 
 	@Override
-	public Achivement getAchivement(String user, String achivementName) {
-		List<Achivement> userAchivements = storage.get(user);
+	public Achievement getAchivement(String user, String achivementName) {
+		List<Achievement> userAchivements = storage.get(user);
 		
 		if(userAchivements == null)
 			return null;
 		
-		for (Achivement a : userAchivements) {
+		for (Achievement a : userAchivements) {
 			if(a.getName().equals(achivementName))
 				return a;
 		}
@@ -32,22 +33,34 @@ public class InMemoryAchievementStorage implements AchivementStorage {
 	}
 
 	@Override
-	public void addAchivement(String user, Achivement a){	
-		List<Achivement> userAchivements = storage.containsKey(user) 
+	public void addAchivement(String user, Achievement a){	
+		List<Achievement> userAchivements = storage.containsKey(user) 
 				? storage.get(user)
 				: new ArrayList<>();
 		
-		for(Achivement ac : userAchivements ) {
+		for(Achievement ac : userAchivements ) {
 			if(ac.equals(a)) {
 				ac.addPoints(a);
 				storage.put(user, userAchivements);
+				achievementListUpdate(user, ac);
 				return ;
 			}
 		}
 
 		userAchivements.add(a);
-		
+		achievementListUpdate(user,a);
 		storage.put(user, userAchivements);
+	}
+
+	@Override
+	public void addBadgeObserver(AchievementObserver badgeObserver) {
+
+		observers.add(badgeObserver);
+		
+	}
+	
+	private void achievementListUpdate(String user, Achievement a) {
+		observers.forEach((x) -> x.achievementUpdate(user, a));
 	}
 
 }

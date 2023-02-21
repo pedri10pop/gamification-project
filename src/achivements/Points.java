@@ -1,6 +1,6 @@
 package achivements;
 
-public class Points extends Achivement {
+public class Points extends Achievement {
 
 	private Integer points;
 	
@@ -14,7 +14,7 @@ public class Points extends Achivement {
 	}
 
 	@Override
-	public void addPoints(Achivement other){
+	public void addPoints(Achievement other){
 		if(other.getClass().equals(this.getClass()))
 			this.points += other.getPoints();
 		
@@ -27,7 +27,7 @@ public class Points extends Achivement {
 	}
 
 	@Override
-	public boolean equals(Achivement other) {
+	public boolean equals(Achievement other) {
 		return this.Name.equals(other.Name) &&
 				this.getClass().equals(other.getClass());
 	}

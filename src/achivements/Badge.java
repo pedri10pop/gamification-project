@@ -1,6 +1,6 @@
 package achivements;
 
-public class Badge extends Achivement {
+public class Badge extends Achievement {
 	
 	private String badgeName;
 	
@@ -20,13 +20,13 @@ public class Badge extends Achivement {
 	}
 
 	@Override
-	public boolean equals(Achivement other) {
+	public boolean equals(Achievement other) {
 		return this.Name.equals(other.Name) &&
 				this.badgeName.equals(other.getBadge());
 	}
 
 	@Override
-	public void addPoints(Achivement other) {
+	public void addPoints(Achievement other) {
 		// TODO Auto-generated method stub
 		
 	}
