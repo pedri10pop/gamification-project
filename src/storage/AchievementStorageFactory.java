@@ -2,10 +2,10 @@ package storage;
 
 public class AchievementStorageFactory {
 	
-	private static AchivementStorage storageMethod;
+	private static AchivementStorage storageMethod = null;
 
 	public static void setAchievementStorageFactory(AchivementStorage storageMethod) {
-		if(storageMethod == null)
+		if(AchievementStorageFactory.storageMethod == null)
 			AchievementStorageFactory.storageMethod = storageMethod;
 	}
 
