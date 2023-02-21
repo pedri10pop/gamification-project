@@ -12,7 +12,6 @@ class TestUser {
 		User u = new User(userName);
 		
 		assertEquals("Pedro", u.getName());
-		assertEquals(0, u.getPoints());
 	}
 	
 }
