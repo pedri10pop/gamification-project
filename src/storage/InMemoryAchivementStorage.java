@@ -21,11 +21,6 @@ public class InMemoryAchivementStorage implements AchivementStorage {
 
 	@Override
 	public Achivement getAchivement(String user, String achivemet) {
-		List<Achivement> userList = storage.get(user);
-		for(Achivement a : userList) {
-			if(a.equals(achivemet))
-				return a;
-		}
 		return null;
 	}
 

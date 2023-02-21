@@ -1,6 +1,7 @@
 package storage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import org.junit.jupiter.api.Test;
 
@@ -25,9 +26,11 @@ class TestAchivementStorage {
 		Achivement a = new Points("COMMENT", 5);
 		as.addAchivement(u, a);
 		
-		assertEquals(a, as.getAchivements("Pedro").get(0));
+		assertEquals("COMMENT", as.getAchivements("Pedro").get(0).getName());
+		assertEquals(5, as.getAchivements("Pedro").get(0).getPoints());
 		assertEquals(1, as.getAchivements("Pedro").size());
-		assertEquals(a, as.getAchivement("Pedro","COMMENT"));
+		assertEquals("COMMENT", as.getAchivement("Pedro","COMMENT").getName());
+		assertEquals(5, as.getAchivement("Pedro","COMMENT").getPoints());
 	}
 	
 	@Test
