@@ -37,6 +37,14 @@ public class InMemoryAchivementStorage implements AchivementStorage {
 				? storage.get(user)
 				: new ArrayList<>();
 		
+		for(Achivement ac : userAchivements ) {
+			if(ac.equals(a)) {
+				ac.addPoints(a);
+				storage.put(user, userAchivements);
+				return ;
+			}
+		}
+		
 		userAchivements.add(a);
 		
 		storage.put(user, userAchivements);
