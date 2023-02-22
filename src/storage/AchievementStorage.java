@@ -4,7 +4,7 @@ import java.util.List;
 
 import achivements.Achievement;
 
-public interface AchivementStorage {
+public interface AchievementStorage {
 	
 	public List<Achievement> getAchivements(String user);
 

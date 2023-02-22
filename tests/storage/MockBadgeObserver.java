@@ -9,7 +9,7 @@ public class MockBadgeObserver implements AchievementObserver {
 	private BooleanSupplier wasCalled;
 	
 	@Override
-	public void achievementUpdate(String user, Achievement a) {
+	public void achievementUpdate(String user, Achievement achievement) {
 		wasCalled = () -> true;
 	}
 

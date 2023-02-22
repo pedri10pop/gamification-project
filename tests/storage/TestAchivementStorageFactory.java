@@ -9,7 +9,7 @@ class TestAchivementStorageFactory {
 	@Test
 	void testCreateAStorageFactory() {
 		AchievementStorageFactory.setAchievementStorageFactory(new InMemoryAchievementStorage());
-		AchivementStorage as = AchievementStorageFactory.getAchievementStorage();
+		AchievementStorage as = AchievementStorageFactory.getAchievementStorage();
 		
 		assertEquals(null, as.getAchivements("Invalid User"));
 		assertEquals(null, as.getAchivement("Inexistent User", "Invalid Achiviment"));
@@ -18,8 +18,8 @@ class TestAchivementStorageFactory {
 	@Test
 	void testStorageFactoryUniqueness() {
 		AchievementStorageFactory.setAchievementStorageFactory(new InMemoryAchievementStorage());
-		AchivementStorage as = AchievementStorageFactory.getAchievementStorage();
-		AchivementStorage bs = AchievementStorageFactory.getAchievementStorage();
+		AchievementStorage as = AchievementStorageFactory.getAchievementStorage();
+		AchievementStorage bs = AchievementStorageFactory.getAchievementStorage();
 		
 		assertEquals(as, bs);
 	}
@@ -27,9 +27,9 @@ class TestAchivementStorageFactory {
 	@Test
 	void testStorageFactoryUniquenessToCreationOverrideAttempt() {
 		AchievementStorageFactory.setAchievementStorageFactory(new InMemoryAchievementStorage());
-		AchivementStorage as = AchievementStorageFactory.getAchievementStorage();
+		AchievementStorage as = AchievementStorageFactory.getAchievementStorage();
 		AchievementStorageFactory.setAchievementStorageFactory(new InMemoryAchievementStorage());
-		AchivementStorage bs = AchievementStorageFactory.getAchievementStorage();
+		AchievementStorage bs = AchievementStorageFactory.getAchievementStorage();
 		
 		assertEquals(as, bs);
 	}

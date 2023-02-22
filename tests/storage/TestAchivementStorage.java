@@ -13,7 +13,7 @@ import user.User;
 
 class TestAchivementStorage {
 	
-	AchivementStorage as;
+	AchievementStorage as;
 	User u;
 	
 	@BeforeEach

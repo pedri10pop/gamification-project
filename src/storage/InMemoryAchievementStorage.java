@@ -7,7 +7,7 @@ import java.util.Map;
 
 import achivements.Achievement;
 
-public class InMemoryAchievementStorage implements AchivementStorage {
+public class InMemoryAchievementStorage implements AchievementStorage {
 
 	private Map<String, List<Achievement>> storage = new HashMap<>();
 	private List<AchievementObserver> observers = new ArrayList<>();
