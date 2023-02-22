@@ -12,5 +12,9 @@ public class AchievementStorageFactory {
 	public static AchievementStorage getAchievementStorage() {
 		return storageMethod;
 	}
+	
+	public static void forceNewStorageMethod(AchievementStorage storageMethod) {
+		AchievementStorageFactory.storageMethod = storageMethod;
+	}
 
 }

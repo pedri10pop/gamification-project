@@ -4,33 +4,47 @@ import java.util.function.BooleanSupplier;
 
 public class MockForumServiceImplementation implements ForumService {
 
-	private BooleanSupplier wasCalled = () -> false;
+	private BooleanSupplier wasAddTopicCalled = () -> false;
+	private BooleanSupplier wasAddCommentCalled = () -> false;
+	private BooleanSupplier wasLikeTopicCalled = () -> false;
+	private BooleanSupplier wasLikeCommentCalled = () -> false;
 	
-	public BooleanSupplier wasCalled() {
-		return wasCalled;
+	public BooleanSupplier wasAddTopicCalled() {
+		return wasAddTopicCalled;
+	}
+	
+	public BooleanSupplier wasAddCommentCalled() {
+		return wasAddCommentCalled;
+	}
+	
+	public BooleanSupplier wasLikeTopicCalled() {
+		return wasLikeTopicCalled;
+	}
+	
+	public BooleanSupplier wasLikeCommentCalled() {
+		return wasLikeCommentCalled;
 	}
 	
 	@Override
 	public void addTopic(String user, String topic) {
-		wasCalled = () -> true;
+		wasAddTopicCalled = () -> true;
 	}
 
 	@Override
 	public void addComment(String user, String topic, String comment) {
-		// TODO Auto-generated method stub
-
+		wasAddCommentCalled = () -> true;
 	}
 
 	@Override
 	public void likeTopic(String user, String topic, String topicUser) {
-		// TODO Auto-generated method stub
-
+		wasLikeTopicCalled = () -> true;
 	}
 
 	@Override
 	public void likeComment(String user, String topic, String comment, String commentUser) {
-		// TODO Auto-generated method stub
-
+		wasLikeCommentCalled = () -> true;
 	}
+
+	
 
 }

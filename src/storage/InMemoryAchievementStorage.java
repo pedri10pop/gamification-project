@@ -28,7 +28,6 @@ public class InMemoryAchievementStorage implements AchievementStorage {
 			if(a.getName().equals(achivementName))
 				return a;
 		}
-		
 		return null;
 	}
 
@@ -54,9 +53,7 @@ public class InMemoryAchievementStorage implements AchievementStorage {
 
 	@Override
 	public void addBadgeObserver(AchievementObserver badgeObserver) {
-
 		observers.add(badgeObserver);
-		
 	}
 	
 	private void achievementListUpdate(String user, Achievement a) {
