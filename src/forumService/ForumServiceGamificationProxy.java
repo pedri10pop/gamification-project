@@ -1,9 +1,8 @@
 package forumService;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import achivements.Achievement;
+import achivements.Badge;
+import achivements.Points;
 import storage.AchievementObserver;
 import storage.AchievementStorage;
 import storage.AchievementStorageFactory;
@@ -12,7 +11,6 @@ import storage.InMemoryAchievementStorage;
 public class ForumServiceGamificationProxy implements ForumService {
 
 	private ForumService forumServiceImplementation = null;
-	private List<AchievementObserver> observers = new ArrayList<>();
 	private AchievementStorage storage;
 	
 	
@@ -20,11 +18,11 @@ public class ForumServiceGamificationProxy implements ForumService {
 		this.forumServiceImplementation = forumServiceImplementation;
 		AchievementStorageFactory.setAchievementStorageFactory(new InMemoryAchievementStorage());
 		this.storage = AchievementStorageFactory.getAchievementStorage();
-		storage.addBadgeObserver(null);
+		storage.addBadgeObserver(new ICanTalk());
 	}
 
 	public void addObserver(AchievementObserver observer) {
-		observers.add(observer);
+		storage.addBadgeObserver(observer);
 	}
 	
 	@Override
@@ -32,6 +30,7 @@ public class ForumServiceGamificationProxy implements ForumService {
 		
 		forumServiceImplementation.addTopic(user, topic);
 		
+		storage.addAchivement(user, new Points("CREATION",5));
 	}
 
 
@@ -54,12 +53,16 @@ public class ForumServiceGamificationProxy implements ForumService {
 	}
 
 	class ICanTalk implements AchievementObserver{
-
 		@Override
 		public void achievementUpdate(String user, Achievement achievement) {
+			Achievement a = storage.getAchivement(user, achievement.getName());
 			
+			
+			if(achievement.getName().equals("CREATION") &&
+					achievement.getClass().equals(Points.class) &&
+					achievement.getPoints().equals(5))
+				storage.addAchivement(user, new Badge("CREATION", "I CAN TALK"));
 		}
-		
 	}
 	
 }

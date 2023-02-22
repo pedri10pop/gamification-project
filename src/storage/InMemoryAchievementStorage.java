@@ -48,8 +48,8 @@ public class InMemoryAchievementStorage implements AchievementStorage {
 		}
 
 		userAchivements.add(a);
-		achievementListUpdate(user,a);
 		storage.put(user, userAchivements);
+		achievementListUpdate(user,a);
 	}
 
 	@Override
